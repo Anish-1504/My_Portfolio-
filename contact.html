@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Contact — Anish Patil</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">Anish Patil</a>
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="skills.html">Skills</a>
+    <a class="nav-link" href="projects.html">Projects</a>
+    <a class="nav-link" href="experience.html">Experience</a>
+    <a class="nav-link active" href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+    <div class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav">
+  <a class="mobile-link" href="index.html">Home</a>
+  <a class="mobile-link" href="skills.html">Skills</a>
+  <a class="mobile-link" href="projects.html">Projects</a>
+  <a class="mobile-link" href="experience.html">Experience</a>
+  <a class="mobile-link active" href="contact.html">Contact</a>
+</div>
+
+<div class="page-wrapper">
+  <div class="contact-center">
+    <h2 class="contact-title">Let's <span style="color:var(--accent2)">Connect</span> 🚀</h2>
+    <p class="contact-sub">Open to collaborations, opportunities, and interesting conversations.</p>
+    <div class="contact-btns">
+      <a class="contact-btn email" href="mailto:anishpatil.1100537@gmail.com">
+        <span class="contact-btn-icon">✉️</span>
+        <span>Email Me</span>
+      </a>
+      <a class="contact-btn github" href="https://github.com/Anish-1504" target="_blank" rel="noopener">
+        <span class="contact-btn-icon">🐙</span>
+        <span>GitHub</span>
+      </a>
+      <a class="contact-btn linkedin" href="https://www.linkedin.com/in/anish-patil-5350ba250" target="_blank" rel="noopener">
+        <span class="contact-btn-icon">💼</span>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-name">Anish <span>Patil</span></div>
+    <div class="footer-note">AI/ML Engineer · Bangalore, India</div>
+  </footer>
+</div>
+
+<script src="nav.js"></script>
+</body>
+</html>

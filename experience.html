@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Experience — Anish Patil</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">Anish Patil</a>
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="skills.html">Skills</a>
+    <a class="nav-link" href="projects.html">Projects</a>
+    <a class="nav-link active" href="experience.html">Experience</a>
+    <a class="nav-link" href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+    <div class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav">
+  <a class="mobile-link" href="index.html">Home</a>
+  <a class="mobile-link" href="skills.html">Skills</a>
+  <a class="mobile-link" href="projects.html">Projects</a>
+  <a class="mobile-link active" href="experience.html">Experience</a>
+  <a class="mobile-link" href="contact.html">Contact</a>
+</div>
+
+<div class="page-wrapper">
+  <div class="section-container">
+    <div class="section-header">
+      <p class="section-label">work history</p>
+      <h2 class="section-title">My <span class="accent">Experience</span></h2>
+      <p class="section-sub">Professional roles and internships</p>
+    </div>
+
+    <div class="exp-timeline">
+
+      <div class="exp-card">
+        <div class="exp-company">Indium Software, Bangalore</div>
+        <div class="exp-date">Mar 2025 – Present</div>
+        <div class="exp-role">Associate Test Engineer (Gaming – iXie)</div>
+        <div class="exp-points">
+          <div class="exp-point">Working as a full-time Associate Test Engineer in the Gaming division (iXie), supporting game testing and client deliverables.</div>
+          <div class="exp-point">Captured and validated gameplay footage for upcoming game events based on client requirements and quality standards.</div>
+          <div class="exp-point">Managed client requests and defect tracking using Jira, ensuring timely updates and accurate documentation.</div>
+          <div class="exp-point">Collaborated with QA teams and project managers to ensure smooth project execution and delivery.</div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-company">Crane's Varsity, Bangalore</div>
+        <div class="exp-date">Internship</div>
+        <div class="exp-role">Data Science Intern</div>
+        <div class="exp-points">
+          <div class="exp-point">Worked on real-world data handling, analysis, and model training using Python.</div>
+          <div class="exp-point">Used NumPy and Pandas for data cleaning, preprocessing, and manipulation.</div>
+          <div class="exp-point">Applied machine learning techniques to build models and extract predictive insights.</div>
+          <div class="exp-point">Gained hands-on experience in AI/ML workflows, dataset preparation, and evaluation.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-name">Anish <span>Patil</span></div>
+    <div class="footer-note">AI/ML Engineer · Bangalore, India</div>
+  </footer>
+</div>
+
+<script src="nav.js"></script>
+</body>
+</html>
