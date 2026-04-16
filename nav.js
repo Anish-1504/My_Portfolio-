@@ -50,7 +50,7 @@ const projects = {
     tech: ['Python','Ollama','llama3.2','bge-m3','Whisper','scikit-learn','joblib','NumPy','NLP','RAG']
   },
   drone: {
-    title: 'Drone Object Detection',
+    title: 'Real-Time Object Detection with Drone',
     category: 'Computer Vision · Deep Learning',
     overview: 'A real-time object detection system deployed on drone hardware that uses COCO dataset-trained models to identify and classify objects from aerial footage in real time.',
     points: [
