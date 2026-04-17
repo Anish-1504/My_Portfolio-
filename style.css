@@ -67,11 +67,30 @@ body::before {
 [data-theme="light"] #navbar { background: rgba(240,240,245,0.92); }
 
 .nav-logo {
-  font-family: var(--font-display); font-size: 1.05rem; font-weight: 800;
-  color: var(--accent2);
-  display: flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
-.nav-logo::before { content: '>'; color: var(--accent3); font-family: var(--font-mono); font-size: 0.85rem; }
+
+/* First name - white */
+.first-name {
+  color: #ffffff;
+}
+
+/* Surname - purple */
+.last-name {
+  color: var(--accent2);
+}
+
+.nav-logo::before {
+  content: '>';
+  color: var(--accent3);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
 
 .nav-links { display: flex; align-items: center; gap: 0.15rem; }
 .nav-link {
