@@ -373,4 +373,46 @@ footer {
   .hero-btns { flex-direction: column; }
   .btn { justify-content: center; text-align: center; }
 }
-</style>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const head = document.getElementById('copilot-head');
+  const face = document.getElementById('copilot-face');
+  const goggles = document.getElementById('copilot-goggles');
+  
+  if (!head) return;
+
+  document.addEventListener('mousemove', (event) => {
+    // Get center coordinates of the robot head
+    const rect = head.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    // Calculate distance from center (-1 to 1 roughly)
+    const deltaX = (event.clientX - centerX) / window.innerWidth;
+    const deltaY = (event.clientY - centerY) / window.innerHeight;
+    
+    // 1. Rotate the whole head
+    const rotateX = -deltaY * 60; // Up/down look
+    const rotateY = deltaX * 60;  // Left/right look
+    
+    // 2. Parallax shift for the face (moves further inside the helmet)
+    const faceTranslateX = deltaX * 15; 
+    const faceTranslateY = deltaY * 15;
+    
+    // 3. Parallax shift for the goggles (moves slightly differently)
+    const gogglesTranslateX = deltaX * 25;
+    const gogglesTranslateY = deltaY * 20;
+
+    // Apply the transforms
+    head.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    face.style.transform = `translate(${faceTranslateX}px, ${faceTranslateY}px)`;
+    goggles.style.transform = `translate(${gogglesTranslateX}px, ${gogglesTranslateY}px)`;
+  });
+
+  // Reset when mouse leaves the page
+  document.addEventListener('mouseleave', () => {
+    head.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    face.style.transform = 'translate(0px, 0px)';
+    goggles.style.transform = 'translate(0px, 0px)';
+  });
+});
