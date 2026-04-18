@@ -393,7 +393,6 @@ footer {
   animation: hover 4s ease-in-out infinite;
 }
 
-
 @keyframes hover {
   0%, 100% { top: 0; }
   50% { top: -8px; }
