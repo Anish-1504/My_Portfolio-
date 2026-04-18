@@ -168,63 +168,33 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (!head) return;
 
-  // core function to update positions
-  const updateRobotPosition = (inputX, inputY) => {
+  document.addEventListener('mousemove', (event) => {
+    // Get center coordinates of the robot head
     const rect = head.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     
-    const deltaX = (inputX - centerX) / window.innerWidth;
-    const deltaY = (inputY - centerY) / window.innerHeight;
+    // Calculate distance from center (-1 to 1 roughly)
+    const deltaX = (event.clientX - centerX) / window.innerWidth;
+    const deltaY = (event.clientY - centerY) / window.innerHeight;
     
-    const rotateX = Math.max(-30, Math.min(30, -deltaY * 70));
-    const rotateY = Math.max(-30, Math.min(30, deltaX * 70));
+    // 1. Rotate the whole head
+    const rotateX = -deltaY * 60; // Up/down look
+    const rotateY = deltaX * 60;  // Left/right look
     
-    const faceX = deltaX * 15; 
-    const faceY = deltaY * 15;
-    const gogX = deltaX * 20;
-    const gogY = deltaY * 15;
+    // 2. Parallax shift for the face (moves further inside the helmet)
+    const faceTranslateX = deltaX * 15; 
+    const faceTranslateY = deltaY * 15;
+    
+    // 3. Parallax shift for the goggles (moves slightly differently)
+    const gogglesTranslateX = deltaX * 25;
+    const gogglesTranslateY = deltaY * 20;
 
+    // Apply the transforms
     head.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    face.style.transform = `translate(${faceX}px, ${faceY}px)`;
-    goggles.style.transform = `translate(${gogX}px, ${gogY}px)`;
-  };
-
-  // 1. DESKTOP: Mouse Movement
-  document.addEventListener('mousemove', (e) => {
-    updateRobotPosition(e.clientX, e.clientY);
+    face.style.transform = `translate(${faceTranslateX}px, ${faceTranslateY}px)`;
+    goggles.style.transform = `translate(${gogglesTranslateX}px, ${gogglesTranslateY}px)`;
   });
-
-  // 2. MOBILE: Touch Movement
-  document.addEventListener('touchmove', (e) => {
-    // Prevent scrolling while interacting with the robot if desired
-    // e.preventDefault(); 
-    const touch = e.touches[0];
-    updateRobotPosition(touch.clientX, touch.clientY);
-  }, { passive: true });
-
-  // 3. MOBILE: Tilt (Gyroscope)
-  // This triggers when the user tilts their phone
-  window.addEventListener('deviceorientation', (e) => {
-    // gamma is left-to-right tilt, beta is front-to-back tilt
-    if (e.gamma !== null && e.beta !== null) {
-      // Mapping tilt to screen coordinates roughly
-      const tiltX = (e.gamma * 10) + (window.innerWidth / 2);
-      const tiltY = (e.beta * 10) + (window.innerHeight / 2);
-      updateRobotPosition(tiltX, tiltY);
-    }
-  });
-
-  // Reset position
-  const resetPos = () => {
-    head.style.transform = 'rotateX(0deg) rotateY(0deg)';
-    face.style.transform = 'translate(0px, 0px)';
-    goggles.style.transform = 'translate(0px, 0px)';
-  };
-
-  document.addEventListener('mouseleave', resetPos);
-  document.addEventListener('touchend', resetPos);
-});
 
   // Reset when mouse leaves the page
   document.addEventListener('mouseleave', () => {
