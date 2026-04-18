@@ -132,3 +132,100 @@ function closeModalOutside(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
+
+#agent-wrapper {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 100px;
+  height: 100px;
+  z-index: 9999;
+  perspective: 800px; /* Required for 3D effect */
+}
+
+.agent-head {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  animation: hover 4s ease-in-out infinite;
+}
+
+@keyframes hover {
+  0%, 100% { top: 0; }
+  50% { top: -8px; }
+}
+
+.helmet {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  width: 80px;
+  height: 70px;
+  background: linear-gradient(135deg, #4facfe 0%, #667eea 100%);
+  border-radius: 35% 35% 45% 45%;
+  box-shadow: 
+    inset -4px -4px 10px rgba(0,0,0,0.3),
+    inset 4px 4px 10px rgba(255,255,255,0.4),
+    0 10px 20px rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Added transition for parallax */
+.face-screen {
+  width: 56px;
+  height: 46px;
+  background: radial-gradient(circle at 50% 50%, #1a1b4b 0%, #08081a 100%);
+  border-radius: 25% 25% 35% 35%;
+  box-shadow: inset 0 4px 8px rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  transition: transform 0.1s ease-out; 
+}
+
+.eye {
+  width: 8px;
+  height: 16px;
+  border-radius: 3px;
+  background: repeating-linear-gradient(to bottom, #00f2fe, #00f2fe 2px, #0098a0 2px, #0098a0 3px);
+  box-shadow: 0 0 8px #00f2fe, 0 0 15px rgba(0, 242, 254, 0.6);
+}
+
+/* Added transition for parallax */
+.goggles-container {
+  position: absolute;
+  top: -18px;
+  display: flex;
+  gap: 4px;
+  z-index: 3;
+  transition: transform 0.1s ease-out;
+}
+
+.goggle {
+  width: 32px;
+  height: 24px;
+  background: #3b28cc;
+  border: 5px solid #2871fa;
+  border-radius: 10px;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.6), 0 4px 6px rgba(0,0,0,0.3), inset 2px 2px 4px rgba(255,255,255,0.4);
+}
+
+.ear {
+  position: absolute;
+  top: 35px;
+  width: 16px;
+  height: 28px;
+  background: linear-gradient(to bottom, #4facfe, #667eea);
+  border-radius: 8px;
+  z-index: 1;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+}
+.left-ear { left: 2px; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.right-ear { right: 2px; border-top-left-radius: 0; border-bottom-left-radius: 0; }
