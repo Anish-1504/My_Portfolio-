@@ -17,6 +17,7 @@
 <style>
 
 /* Label for chatbot/message icon */
+/* Label for chatbot/message icon */
 #agent-label{
   position:fixed;
   right:20px;
@@ -34,45 +35,11 @@
 }
 
 /* Move label when agent widget moves on smaller screens */
-@media (max-width: 768px) {
-    #agent-wrapper {
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        border-radius: 0;
-    }
-}
-
-/* Fix mobile: keep agent widget compact instead of full-screen */
-@media (max-width: 768px) {
-  #agent-wrapper {
-    position: fixed !important;
-    top: 20px !important;
-    left: auto !important;
-    bottom: auto !important;
-    width: 72px !important;
-    height: 72px !important;
-    border-radius: 8px !important;
-    overflow: visible !important;
-    z-index: 9999;
-  }
-
-  /* keep the small label out of the way */
-  #agent-label {
-    right: 100px;
-    bottom: 20px;
-    /* if label also overlaps, you can hide it on very small screens:
-       display: none; */
-  }
-
-  /* adjust internal elements so they don't expand the wrapper */
-  #agent-wrapper * {
-    max-width: 100%;
-    max-height: 100%;
-    box-sizing: border-box;
+@media(max-width:768px){
+  #agent-label{
+    left:auto;
+    right:20px;  /* matches #agent-wrapper right placement in your media rule */
+    top:30px;
   }
 }
 /* ===== TOKENS ===== */
