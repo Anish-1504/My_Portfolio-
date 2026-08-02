@@ -15,6 +15,33 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800;900&family=Cabinet+Grotesk:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
 <style>
+
+/* Label for chatbot/message icon */
+#agent-label{
+  position:fixed;
+  left:50px;
+  top:60px;
+  z-index:10000;
+  background:var(--card);
+  color:var(--text);
+  padding:0.45rem 0.75rem;
+  border-radius:6px;
+  font-size:0.82rem;
+  border:1px solid var(--border);
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  font-family:var(--font-mono);
+  white-space:nowrap;
+}
+
+/* Move label when agent widget moves on smaller screens */
+@media(max-width:768px){
+  #agent-label{
+    left:auto;
+    right:20px;  /* matches #agent-wrapper right placement in your media rule */
+    top:30px;
+  }
+}
+
 /* ===== TOKENS ===== */
 :root {
   --bg:      #080810;
@@ -601,6 +628,7 @@ footer{
 </head>
 <body>
 
+<div id="agent-label">Ask me anything about this Profile only.</div>
 <!-- SCROLL PROGRESS -->
 <div id="scroll-bar"></div>
 
