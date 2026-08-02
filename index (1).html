@@ -34,12 +34,16 @@
 }
 
 /* Move label when agent widget moves on smaller screens */
-@media(max-width:768px){
-  #agent-label{
-    left:auto;
-    right:10px !important;  /* matches #agent-wrapper right placement in your media rule */
-    top:80px !important;
-  }
+@media (max-width: 768px) {
+    #agent-wrapper {
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+    }
 }
   
 /* ===== TOKENS ===== */
