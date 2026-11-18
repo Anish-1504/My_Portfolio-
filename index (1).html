@@ -53,6 +53,8 @@
   --red:     #ef4444;
   --glow:    rgba(109,40,217,0.18);
   --glow2:   rgba(6,182,212,0.12);
+  --hero-glow-purple: rgba(124,58,237,0.2);
+  --hero-glow-cyan: rgba(6,182,212,0.1);
   --font-mono: 'JetBrains Mono', monospace;
   --font-display: 'Syne', sans-serif;
   --font-body: 'Cabinet Grotesk', sans-serif;
@@ -71,6 +73,8 @@
   --muted2: #7a7a96;
   --glow: rgba(109,40,217,0.06);
   --glow2: rgba(6,182,212,0.06);
+  --hero-glow-purple: rgba(124,58,237,0.08);
+  --hero-glow-cyan: rgba(6,182,212,0.06);
 }
 
 /* ===== RESET ===== */
@@ -188,7 +192,13 @@ body::before{
 .btn-ghost:hover{border-color:var(--accent3);color:var(--accent3);}
 
 /* ===== HERO ===== */
-#hero{position:relative;overflow:hidden;min-height:calc(100vh - 60px);display:flex;flex-direction:column;justify-content:center;}
+#hero{
+  position:relative;overflow:hidden;min-height:calc(100vh - 60px);display:flex;flex-direction:column;justify-content:center;
+  background:
+    radial-gradient(ellipse 42rem 30rem at 82% 28%,var(--hero-glow-purple),transparent 72%),
+    radial-gradient(ellipse 38rem 26rem at 15% 75%,var(--hero-glow-cyan),transparent 75%),
+    linear-gradient(135deg,var(--bg),var(--bg2) 52%,var(--bg));
+}
 .hero-grid{
   position:absolute;inset:0;
   background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
@@ -211,11 +221,20 @@ body::before{
   padding:0.26rem 0.85rem;border-radius:2px;margin-bottom:1.8rem;
   animation:fadeUp 0.5s ease both;
 }
-.hero-profile{
+.hero-profile-wrap{
   grid-column:2;grid-row:1 / span 6;justify-self:center;align-self:center;
-  position:static;width:230px;height:230px;object-fit:cover;border-radius:50%;
-  border:3px solid var(--accent2);box-shadow:0 0 28px rgba(168,85,247,0.28);
-  margin:0;
+  position:relative;isolation:isolate;display:grid;place-items:center;width:230px;height:230px;
+}
+.hero-profile-wrap::before{
+  content:'';position:absolute;inset:-48px;z-index:0;border-radius:50%;
+  background:radial-gradient(circle,rgba(168,85,247,0.42) 0%,rgba(6,182,212,0.16) 46%,transparent 74%);
+  filter:blur(18px);pointer-events:none;
+}
+.hero-profile{
+  position:relative;z-index:1;
+  width:100%;height:100%;object-fit:cover;border-radius:50%;
+  border:3px solid var(--accent2);
+  box-shadow:0 0 26px rgba(168,85,247,0.48),0 0 60px rgba(109,40,217,0.28);
 }
 .hero-badge::before{content:'●';font-size:0.42rem;animation:pulse 2s infinite;}
 h1.hero-name{
@@ -609,7 +628,7 @@ footer{
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .hero-content{grid-template-columns:minmax(0,1fr);column-gap:0;}
-  .hero-profile{
+  .hero-profile-wrap{
     grid-column:1;grid-row:1;justify-self:end;align-self:start;
     width:140px;height:140px;margin:0 0 1.35rem;
   }
@@ -635,7 +654,7 @@ footer{
   .section{padding:3.5rem 0;}
   .section-inner{padding:0 1.2rem;}
   .hero-content{padding:3rem 1.2rem 2rem;}
-  .hero-profile{position:static;margin:0 0 1.35rem auto;}
+  .hero-profile-wrap{margin:0 0 1.35rem auto;}
   .education-card{flex-direction:column;gap:0.7rem;}
   .skills-preview-strip{padding:0 1.2rem 2.5rem;}
   .ach-grid{grid-template-columns:repeat(2,1fr);}
@@ -695,7 +714,9 @@ footer{
     <div class="hero-glow1"></div>
     <div class="hero-glow2"></div>
     <div class="hero-content">
-      <img class="hero-profile" src="./profile.jpg" alt="Profile photo of Anish S. Patil">
+      <div class="hero-profile-wrap">
+        <img class="hero-profile" src="./profile.jpg" alt="Profile photo of Anish S. Patil">
+      </div>
       <div class="hero-badge">AI Engineer · Generative AI &amp; RAG Systems</div>
       <h1 class="hero-name">
         Hi, I'm<br>
