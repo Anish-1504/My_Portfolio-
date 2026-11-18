@@ -34,16 +34,6 @@
   white-space:nowrap;
 }
 
-/* Move label when agent widget moves on smaller screens */
-@media (max-width: 768px) {
-    #agent-wrapper {
-        width: calc(100vw - 20px);
-        max-width: 360px;
-        right: 10px;
-        left: 10px;
-        height: 70vh;
-    }
-}
 /* ===== TOKENS ===== */
 :root {
   --bg:      #080810;
@@ -587,7 +577,11 @@ footer{
 .reveal-delay-3{transition-delay:0.3s;}
 
 /* ===== ROBOT WIDGET ===== */
-#agent-wrapper{position:fixed;top: 100px;left:50px;width:90px;height:90px;z-index:9999;perspective:800px;}
+#agent-wrapper{
+  position:fixed;left:24px;bottom:110px;width:90px;height:90px;z-index:9999;perspective:800px;
+  cursor:grab;touch-action:none;user-select:none;
+}
+#agent-wrapper.dragging{cursor:grabbing;}
 .agent-head{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 0.12s ease-out;animation:agentHover 4s ease-in-out infinite;}
 @keyframes agentHover{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 .helmet{position:absolute;top:12px;left:8px;width:74px;height:66px;background:linear-gradient(135deg,#5b21b6 0%,#7c3aed 50%,#4facfe 100%);border-radius:35% 35% 45% 45%;display:flex;justify-content:center;align-items:center;z-index:2;box-shadow:inset -4px -4px 10px rgba(0,0,0,0.25),0 10px 20px rgba(0,0,0,0.25);} 
@@ -646,7 +640,6 @@ footer{
   .skills-preview-strip{padding:0 1.2rem 2.5rem;}
   .ach-grid{grid-template-columns:repeat(2,1fr);}
   footer{flex-direction:column;padding:1.2rem;}
-  #agent-wrapper{top:50px;right:20px;width:72px;height:30px;}
 }
 @media(max-width:480px){
   .hero-btns{flex-direction:column;}
@@ -1134,7 +1127,7 @@ footer{
 </div>
 
 <!-- ROBOT WIDGET -->
-<div id="agent-wrapper">
+<div id="agent-wrapper" tabindex="0" aria-label="Interactive bot face. Drag or use arrow keys to move." title="Drag to reposition">
   <div class="agent-head" id="copilot-head">
     <div class="ear left-ear"></div>
     <div class="ear right-ear"></div>
@@ -1375,6 +1368,70 @@ function sendMsg(){
 
 // ===== ROBOT PARALLAX =====
 document.addEventListener('DOMContentLoaded',()=>{
+  const wrapper=document.getElementById('agent-wrapper');
+  if(wrapper){
+    const positionWidget=(left,top)=>{
+      const maxLeft=Math.max(0,window.innerWidth-wrapper.offsetWidth);
+      const maxTop=Math.max(0,window.innerHeight-wrapper.offsetHeight);
+      wrapper.style.left=`${Math.min(Math.max(0,left),maxLeft)}px`;
+      wrapper.style.top=`${Math.min(Math.max(0,top),maxTop)}px`;
+      wrapper.style.right='auto';
+      wrapper.style.bottom='auto';
+    };
+    const savePosition=()=>{
+      localStorage.setItem('botFaceLeft',wrapper.style.left);
+      localStorage.setItem('botFaceTop',wrapper.style.top);
+    };
+    const savedLeft=Number.parseFloat(localStorage.getItem('botFaceLeft'));
+    const savedTop=Number.parseFloat(localStorage.getItem('botFaceTop'));
+    if(Number.isFinite(savedLeft)&&Number.isFinite(savedTop)){
+      positionWidget(savedLeft,savedTop);
+    }
+
+    let dragging=false,offsetX=0,offsetY=0;
+    wrapper.addEventListener('pointerdown',event=>{
+      if(!event.isPrimary||event.button!==0)return;
+      const rect=wrapper.getBoundingClientRect();
+      dragging=true;
+      offsetX=event.clientX-rect.left;
+      offsetY=event.clientY-rect.top;
+      wrapper.classList.add('dragging');
+      wrapper.setPointerCapture(event.pointerId);
+      event.preventDefault();
+    });
+    wrapper.addEventListener('pointermove',event=>{
+      if(dragging)positionWidget(event.clientX-offsetX,event.clientY-offsetY);
+    });
+    const stopDragging=()=>{
+      if(!dragging)return;
+      dragging=false;
+      wrapper.classList.remove('dragging');
+      savePosition();
+    };
+    wrapper.addEventListener('pointerup',stopDragging);
+    wrapper.addEventListener('pointercancel',stopDragging);
+    wrapper.addEventListener('keydown',event=>{
+      const step=event.shiftKey?30:10;
+      const movement={
+        ArrowLeft:[-step,0],
+        ArrowRight:[step,0],
+        ArrowUp:[0,-step],
+        ArrowDown:[0,step]
+      }[event.key];
+      if(!movement)return;
+      const rect=wrapper.getBoundingClientRect();
+      positionWidget(rect.left+movement[0],rect.top+movement[1]);
+      savePosition();
+      event.preventDefault();
+    });
+    window.addEventListener('resize',()=>{
+      if(!wrapper.style.left||!wrapper.style.top)return;
+      const rect=wrapper.getBoundingClientRect();
+      positionWidget(rect.left,rect.top);
+      savePosition();
+    });
+  }
+
   const head=document.getElementById('copilot-head');
   const face=document.getElementById('copilot-face');
   const goggles=document.getElementById('copilot-goggles');
