@@ -210,7 +210,8 @@ body::before{
 .hero-glow2{position:absolute;bottom:20%;right:10%;width:300px;height:300px;background:radial-gradient(ellipse at center,var(--glow2) 0%,transparent 70%);pointer-events:none;}
 .hero-content{
   position:relative;z-index:1;
-  max-width:920px;margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,0.8fr);column-gap:3rem;
+  max-width:1100px;width:100%;margin:0 auto;
   padding:4rem 2rem 3rem;
 }
 .hero-badge{
@@ -221,9 +222,10 @@ body::before{
   animation:fadeUp 0.5s ease both;
 }
 .hero-profile{
-  position:absolute;top:4rem;right:2rem;
-  width:140px;height:140px;object-fit:cover;border-radius:50%;
+  grid-column:2;grid-row:1 / span 6;justify-self:center;align-self:center;
+  position:static;width:190px;height:190px;object-fit:cover;border-radius:50%;
   border:3px solid var(--accent2);box-shadow:0 0 28px rgba(168,85,247,0.28);
+  margin:0;
 }
 .hero-badge::before{content:'●';font-size:0.42rem;animation:pulse 2s infinite;}
 h1.hero-name{
@@ -263,7 +265,8 @@ h1.hero-name .highlight{
 }
 .social-link:hover{border-color:var(--accent2);color:var(--accent2);transform:translateY(-3px);box-shadow:0 6px 18px rgba(168,85,247,0.2);}
 .hero-stats{
-  margin-top:2.5rem;display:flex;gap:2rem;flex-wrap:wrap;
+  grid-column:1;grid-row:7;align-self:center;
+  margin-top:0;display:flex;gap:2rem;flex-wrap:wrap;
   animation:fadeUp 0.6s 0.55s ease both;opacity:0;animation-fill-mode:forwards;
 }
 .stat{display:flex;flex-direction:column;}
@@ -287,7 +290,8 @@ h1.hero-name .highlight{
 
 /* ===== TERMINAL ===== */
 .hero-terminal{
-  margin-top:2.8rem;width:100%;max-width:600px;
+  grid-column:2;grid-row:7;
+  margin-top:0;width:100%;max-width:none;
   background:var(--card);border:1px solid var(--border2);border-radius:8px;overflow:hidden;
   box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 0 1px var(--border);
   animation:fadeUp 0.7s 0.48s ease both;opacity:0;animation-fill-mode:forwards;
@@ -610,6 +614,14 @@ footer{
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
+  .hero-content{grid-template-columns:minmax(0,1fr);column-gap:0;}
+  .hero-profile{
+    grid-column:1;grid-row:1;justify-self:end;align-self:start;
+    width:140px;height:140px;margin:0 0 1.35rem;
+  }
+  .hero-stats,.hero-terminal{grid-column:1;grid-row:auto;}
+  .hero-stats{margin-top:2.5rem;}
+  .hero-terminal{margin-top:2.8rem;max-width:600px;}
   .about-grid{grid-template-columns:1fr;}
   .skills-bento{grid-template-columns:repeat(2,1fr);}
   .projects-grid{grid-template-columns:1fr;}
