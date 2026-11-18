@@ -5,11 +5,11 @@
 <script src="https://files.bpcontent.cloud/2026/08/02/02/20260802024008-DNZFX6EM.js" defer></script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-<title>Anish S. Patil — AI/ML Engineer & RAG Developer</title>
-<meta name="description" content="Anish S. Patil — AI/ML Engineer, RAG Developer, Computer Vision Engineer based in Bangalore. Building intelligent systems with Python, TensorFlow, and LLMs."/>
-<meta name="keywords" content="AI Engineer, ML Engineer, RAG Developer, Computer Vision, Python, TensorFlow, Bangalore"/>
-<meta property="og:title" content="Anish S. Patil — AI/ML Engineer"/>
-<meta property="og:description" content="Building intelligent systems with RAG, Computer Vision, and Python."/>
+<title>Anish S. Patil — AI Engineer | Generative AI &amp; RAG Systems</title>
+<meta name="description" content="Anish S. Patil — AI Engineer specializing in Generative AI, Machine Learning, and LLM-based applications. Skilled in Python, LangChain, RAG, NLP, and vector databases."/>
+<meta name="keywords" content="AI Engineer, Generative AI, RAG, Machine Learning, Python, LangChain, NLP, Vector Databases"/>
+<meta property="og:title" content="Anish S. Patil — AI Engineer"/>
+<meta property="og:description" content="AI Engineer specializing in Generative AI, Machine Learning, and LLM-based applications."/>
 <meta property="og:type" content="website"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -219,6 +219,11 @@ body::before{
   color:var(--accent3);border:1px solid rgba(6,182,212,0.25);
   padding:0.26rem 0.85rem;border-radius:2px;margin-bottom:1.8rem;
   animation:fadeUp 0.5s ease both;
+}
+.hero-profile{
+  width:140px;height:140px;object-fit:cover;border-radius:50%;
+  border:3px solid var(--accent2);box-shadow:0 0 28px rgba(168,85,247,0.28);
+  margin-bottom:1.35rem;
 }
 .hero-badge::before{content:'●';font-size:0.42rem;animation:pulse 2s infinite;}
 h1.hero-name{
@@ -451,7 +456,16 @@ h1.hero-name .highlight{
 .exp-point::before{content:'▸';position:absolute;left:0;color:var(--accent3);font-size:0.65rem;top:4px;}
 
 /* ===== LEARNING ROADMAP ===== */
-#learning{background:var(--bg2);}
+#education{background:var(--bg2);}
+.education-card{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;
+  background:var(--card);border:1px solid var(--border);border-radius:8px;
+  padding:1.5rem 1.7rem;
+}
+.education-school{font-family:var(--font-display);font-size:1.05rem;font-weight:800;margin-bottom:0.5rem;}
+.education-degree{font-size:0.82rem;color:var(--accent2);line-height:1.7;font-family:var(--font-body);}
+.education-location{font-size:0.72rem;color:var(--muted);margin-top:0.45rem;}
+.education-date{flex-shrink:0;color:var(--accent3);font-size:0.78rem;font-weight:600;}
 .roadmap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
 .roadmap-col{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.4rem;}
 .roadmap-col.done{border-color:rgba(16,185,129,0.3);}
@@ -615,6 +629,7 @@ footer{
   .section{padding:3.5rem 0;}
   .section-inner{padding:0 1.2rem;}
   .hero-content{padding:3rem 1.2rem 2rem;}
+  .education-card{flex-direction:column;gap:0.7rem;}
   .skills-preview-strip{padding:0 1.2rem 2.5rem;}
   .ach-grid{grid-template-columns:repeat(2,1fr);}
   footer{flex-direction:column;padding:1.2rem;}
@@ -640,10 +655,11 @@ footer{
   <a class="nav-logo" href="#hero">Anish Patil</a>
   <div class="nav-links">
     <a class="nav-link active" href="#hero" onclick="setActive(this)">Home</a>
-    <a class="nav-link" href="#about" onclick="setActive(this)">About</a>
+    <a class="nav-link" href="#about" onclick="setActive(this)">Summary</a>
     <a class="nav-link" href="#skills" onclick="setActive(this)">Skills</a>
     <a class="nav-link" href="#projects" onclick="setActive(this)">Projects</a>
     <a class="nav-link" href="#experience" onclick="setActive(this)">Experience</a>
+    <a class="nav-link" href="#education" onclick="setActive(this)">Education</a>
     <a class="nav-link" href="#contact" onclick="setActive(this)">Contact</a>
   </div>
   <div class="nav-right">
@@ -657,10 +673,11 @@ footer{
 <!-- MOBILE NAV -->
 <div id="mobile-nav">
   <a class="mobile-link active" href="#hero" onclick="closeMobile()">Home</a>
-  <a class="mobile-link" href="#about" onclick="closeMobile()">About</a>
+  <a class="mobile-link" href="#about" onclick="closeMobile()">Summary</a>
   <a class="mobile-link" href="#skills" onclick="closeMobile()">Skills</a>
   <a class="mobile-link" href="#projects" onclick="closeMobile()">Projects</a>
   <a class="mobile-link" href="#experience" onclick="closeMobile()">Experience</a>
+  <a class="mobile-link" href="#education" onclick="closeMobile()">Education</a>
   <a class="mobile-link" href="#contact" onclick="closeMobile()">Contact</a>
 </div>
 
@@ -672,7 +689,8 @@ footer{
     <div class="hero-glow1"></div>
     <div class="hero-glow2"></div>
     <div class="hero-content">
-      <div class="hero-badge">🟢 Available for AI/ML Opportunities</div>
+      <img class="hero-profile" src="./profile.jpg" alt="Profile photo of Anish S. Patil">
+      <div class="hero-badge">AI Engineer · Generative AI &amp; RAG Systems</div>
       <h1 class="hero-name">
         Hi, I'm<br>
         <span class="highlight">Anish S. Patil</span> 👋
@@ -681,13 +699,12 @@ footer{
         <span id="type-text"></span><span class="cursor-blink">|</span>
       </div>
       <p class="hero-desc">
-        Bangalore-based engineer building intelligent systems with <strong style="color:var(--text)">RAG pipelines</strong>, <strong style="color:var(--text)">Computer Vision</strong>, and <strong style="color:var(--text)">Generative AI</strong>. 
-        Passionate about deploying ML at the edge, designing LLM workflows, and turning raw data into real-world solutions.
+        AI Engineer specializing in <strong style="color:var(--text)">Generative AI</strong>, <strong style="color:var(--text)">Machine Learning</strong>, and <strong style="color:var(--text)">LLM-based application development</strong>, with hands-on experience in Python, LangChain, RAG, NLP, and vector databases.
       </p>
       <div class="hero-btns">
         <a class="btn btn-primary" href="#projects">⚡ View Projects</a>
         <a class="btn btn-outline" href="#contact">📬 Contact Me</a>
-        <a class="btn btn-ghost" href="./Anish Patil.pdf" download>↓ Resume</a>
+        <a class="btn btn-ghost" href="./Anish_Patil_Resume.pdf" download>↓ Resume</a>
       </div>
       <div class="hero-socials">
         <a class="social-link" href="https://github.com/Anish-1504" target="_blank" rel="noopener" title="GitHub">
@@ -701,9 +718,9 @@ footer{
         </a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="stat-num">4<span>+</span></div><div class="stat-label">AI/ML Projects</div></div>
-        <div class="stat"><div class="stat-num">1<span>+</span></div><div class="stat-label">Years Industry</div></div>
-        <div class="stat"><div class="stat-num">3<span>+</span></div><div class="stat-label">Certifications</div></div>
+        <div class="stat"><div class="stat-num">02</div><div class="stat-label">Featured Projects</div></div>
+        <div class="stat"><div class="stat-num">01</div><div class="stat-label">Professional Role</div></div>
+        <div class="stat"><div class="stat-num">01</div><div class="stat-label">Engineering Degree</div></div>
       </div>
 
       <!-- Terminal -->
@@ -714,15 +731,14 @@ footer{
         </div>
         <div class="terminal-body">
           <div class="t-line"><span class="t-prompt">→</span><span style="margin-left:.4rem;color:var(--text)">whoami</span></div>
-          <div class="t-line t-output"><span class="t-green">Anish S. Patil</span> — AI/ML Engineer · Bangalore, India</div>
+          <div class="t-line t-output"><span class="t-green">Anish S. Patil</span> — AI Engineer · Belagavi, India</div>
           <div class="t-line" style="margin-top:.4rem"><span class="t-prompt">→</span><span style="margin-left:.4rem;color:var(--text)">cat focus.txt</span></div>
-          <div class="t-line t-output"><span class="t-purple">RAG Systems</span> · <span class="t-purple">Computer Vision</span> · <span class="t-purple">Generative AI</span></div>
-          <div class="t-line t-output"><span class="t-purple">TensorFlow</span> · <span class="t-purple">LLMs</span> · <span class="t-purple">Edge ML</span></div>
+          <div class="t-line t-output"><span class="t-purple">Generative AI</span> · <span class="t-purple">RAG</span> · <span class="t-purple">NLP</span></div>
+          <div class="t-line t-output"><span class="t-purple">LangChain</span> · <span class="t-purple">LLMs</span> · <span class="t-purple">Vector Databases</span></div>
           <div class="t-line" style="margin-top:.4rem"><span class="t-prompt">→</span><span style="margin-left:.4rem;color:var(--text)">ls projects/</span></div>
-          <div class="t-line t-output"><span class="t-orange">rag-video-assistant/</span> &nbsp;<span class="t-orange">drone-detection/</span></div>
-          <div class="t-line t-output"><span class="t-orange">yolo-face-detection/</span> &nbsp;<span class="t-orange">housing-analysis/</span></div>
+          <div class="t-line t-output"><span class="t-orange">rag-video-assistant/</span> &nbsp;<span class="t-orange">rag-document-intelligence/</span></div>
           <div class="t-line" style="margin-top:.4rem"><span class="t-prompt">→</span><span style="margin-left:.4rem;color:var(--text)">status</span></div>
-          <div class="t-line t-output"><span class="t-green">●</span> Open to AI/ML &amp; GenAI opportunities</div>
+          <div class="t-line t-output"><span class="t-green">●</span> Building AI-powered applications</div>
         </div>
       </div>
     </div>
@@ -733,11 +749,10 @@ footer{
         <span class="skill-pill">🐍 Python</span>
         <span class="skill-pill">🤖 Machine Learning</span>
         <span class="skill-pill">🔍 RAG</span>
-        <span class="skill-pill">🔥 TensorFlow</span>
-        <span class="skill-pill">👁️ Computer Vision</span>
+        <span class="skill-pill">🦜 LangChain</span>
         <span class="skill-pill">💬 NLP</span>
         <span class="skill-pill">🧠 LLMs</span>
-        <span class="skill-pill">🗄️ Oracle SQL</span>
+        <span class="skill-pill">🗄️ Vector Databases</span>
       </div>
     </div>
   </div>
@@ -746,42 +761,37 @@ footer{
   <section class="section" id="about">
     <div class="section-inner">
       <div class="section-header reveal">
-        <p class="section-label">my story</p>
-        <h2 class="section-title">About <span class="hi">Me</span></h2>
+        <p class="section-label">professional profile</p>
+        <h2 class="section-title">Professional <span class="hi">Summary</span></h2>
       </div>
       <div class="about-grid">
         <div class="about-text reveal">
-          <p>I'm <strong>Anish S. Patil</strong> — an engineer from Bangalore making a deliberate transition from <span class="hi2">QA & Game Testing</span> into the world of <span class="hi2">AI/ML Engineering</span>.</p>
-          <p>My testing background gave me something most ML engineers lack early on: a sharp eye for edge cases, systematic debugging instincts, and the discipline to validate models rigorously before calling them "done." Now I bring that mindset to building <strong>RAG pipelines</strong>, <strong>Computer Vision systems</strong>, and <strong>Generative AI applications</strong>.</p>
-          <p>Currently focused on deepening expertise in <strong>deep learning architectures</strong>, <strong>LLM fine-tuning</strong>, and <strong>MLOps</strong> — with the long-term goal of building AI products that make a tangible difference in how people interact with information and the world around them.</p>
+          <p><strong>Anish S. Patil</strong> is an AI Engineer specializing in <span class="hi2">Generative AI</span>, <span class="hi2">Machine Learning</span>, and LLM-based application development.</p>
+          <p>Experienced with <strong>Python</strong>, <strong>LangChain</strong>, <strong>Retrieval-Augmented Generation (RAG)</strong>, <strong>NLP</strong>, and <strong>vector databases</strong>. Project work includes semantic search, document intelligence, speech-to-text processing, and context-aware information retrieval.</p>
+          <p>Brings a strong foundation in software engineering, analytical problem-solving, system validation, and developing scalable AI-powered applications.</p>
           <div class="about-focus-tags">
             <span class="focus-tag">🎯 RAG Development</span>
-            <span class="focus-tag">👁️ Computer Vision</span>
-            <span class="focus-tag">⚡ Edge AI</span>
             <span class="focus-tag">🧬 Generative AI</span>
-            <span class="focus-tag">📊 Data Analysis</span>
+            <span class="focus-tag">💬 NLP</span>
+            <span class="focus-tag">🔎 Semantic Search</span>
+            <span class="focus-tag">📚 Document Intelligence</span>
           </div>
         </div>
         <div class="about-highlights reveal reveal-delay-2">
           <div class="highlight-card">
-            <div class="hc-icon">🔬</div>
-            <div class="hc-title">RAG & LLM Engineer</div>
-            <div class="hc-desc">Built a fully offline RAG video assistant using Whisper, bge-m3 embeddings, and llama3.2 — no cloud APIs, no keys required.</div>
+            <div class="hc-icon">🎬</div>
+            <div class="hc-title">RAG-Based AI Video Assistant</div>
+            <div class="hc-desc">Processes video content with Whisper speech-to-text, Hindi-to-English translation, timestamp-based retrieval, and natural-language search.</div>
           </div>
           <div class="highlight-card">
-            <div class="hc-icon">🚁</div>
-            <div class="hc-title">Computer Vision Developer</div>
-            <div class="hc-desc">Deployed real-time object detection on drone hardware and Raspberry Pi using TensorFlow, YOLO, and OpenCV.</div>
+            <div class="hc-icon">📄</div>
+            <div class="hc-title">RAG Document Intelligence</div>
+            <div class="hc-desc">Built a document question-answering pipeline using LangChain, Sentence Transformers, ChromaDB, and Groq LLMs.</div>
           </div>
           <div class="highlight-card">
-            <div class="hc-icon">🎮</div>
-            <div class="hc-title">Industry-Trained QA Engineer</div>
-            <div class="hc-desc">Associate Test Engineer at Indium Software (iXie Gaming division) — experience with Jira, defect tracking, and client deliverables.</div>
-          </div>
-          <div class="highlight-card">
-            <div class="hc-icon">🥋</div>
-            <div class="hc-title">Discipline Beyond Code</div>
-            <div class="hc-desc">National Karate Championship Runner-Up and state-level silver medalist — built on the same focused mindset I bring to engineering.</div>
+            <div class="hc-icon">🧪</div>
+            <div class="hc-title">Associate Test Engineer</div>
+            <div class="hc-desc">Analyzed application behavior, system output, and gameplay data to validate functionality and improve software reliability.</div>
           </div>
         </div>
       </div>
@@ -794,7 +804,7 @@ footer{
       <div class="section-header reveal">
         <p class="section-label">what i know</p>
         <h2 class="section-title">Technical <span class="hi">Skills</span></h2>
-        <p class="section-sub">Technologies, frameworks, and tools I work with</p>
+        <p class="section-sub">Technical skills and tools from my experience and project work</p>
       </div>
       <div class="skills-bento">
         <div class="skill-group reveal">
@@ -804,53 +814,65 @@ footer{
           </div>
         </div>
         <div class="skill-group reveal reveal-delay-1">
-          <div class="sg-title">AI / ML Frameworks</div>
+          <div class="sg-title">Python Libraries</div>
           <div class="sg-chips">
-            <span class="sg-chip featured">🔥 TensorFlow</span>
-            <span class="sg-chip featured">⚙️ Scikit-learn</span>
-            <span class="sg-chip">👁️ OpenCV</span>
-            <span class="sg-chip">🤖 YOLO</span>
-            <span class="sg-chip">🦙 Ollama</span>
-            <span class="sg-chip">🎙️ Whisper</span>
+            <span class="sg-chip featured">📊 NumPy</span>
+            <span class="sg-chip featured">🐼 Pandas</span>
+            <span class="sg-chip">📉 Matplotlib</span>
+            <span class="sg-chip">⚙️ Scikit-learn</span>
           </div>
         </div>
         <div class="skill-group reveal reveal-delay-2">
           <div class="sg-title">ML Concepts</div>
           <div class="sg-chips">
-            <span class="sg-chip featured">🔍 RAG Systems</span>
-            <span class="sg-chip featured">🧠 LLMs</span>
-            <span class="sg-chip">📚 Supervised ML</span>
-            <span class="sg-chip">🔎 Unsupervised ML</span>
+            <span class="sg-chip">📚 Supervised Learning</span>
+            <span class="sg-chip">🔎 Unsupervised Learning</span>
             <span class="sg-chip">💬 NLP</span>
-            <span class="sg-chip">🌐 Computer Vision</span>
           </div>
         </div>
         <div class="skill-group reveal">
-          <div class="sg-title">Data Science</div>
+          <div class="sg-title">Generative AI</div>
           <div class="sg-chips">
-            <span class="sg-chip featured">📊 NumPy</span>
-            <span class="sg-chip featured">🐼 Pandas</span>
-            <span class="sg-chip">📉 Matplotlib</span>
-            <span class="sg-chip">🔬 EDA</span>
-            <span class="sg-chip">🧹 Data Cleaning</span>
+            <span class="sg-chip featured">🔍 Large Language Models</span>
+            <span class="sg-chip featured">📚 RAG</span>
+            <span class="sg-chip">✍️ Prompt Engineering</span>
+            <span class="sg-chip">🧬 Embeddings</span>
+            <span class="sg-chip">🗄️ Vector Databases</span>
           </div>
         </div>
         <div class="skill-group reveal reveal-delay-1">
-          <div class="sg-title">Tools & Platforms</div>
+          <div class="sg-title">Frameworks &amp; APIs</div>
           <div class="sg-chips">
-            <span class="sg-chip">📓 Jupyter Notebook</span>
-            <span class="sg-chip">💻 VS Code</span>
-            <span class="sg-chip">🔀 Git</span>
-            <span class="sg-chip">🐙 GitHub</span>
-            <span class="sg-chip">🐛 Jira</span>
-            <span class="sg-chip">⚡ Edge Impulse</span>
+            <span class="sg-chip featured">🦜 LangChain</span>
+            <span class="sg-chip">🤗 Hugging Face</span>
+            <span class="sg-chip">🔗 APIs</span>
+            <span class="sg-chip">🌐 HTTP/HTTPS</span>
+            <span class="sg-chip">📦 JSON</span>
+            <span class="sg-chip">🔐 API Authentication</span>
           </div>
         </div>
         <div class="skill-group reveal reveal-delay-2">
+          <div class="sg-title">Developer Tools</div>
+          <div class="sg-chips">
+            <span class="sg-chip">🔀 Git</span>
+            <span class="sg-chip">🐙 GitHub</span>
+            <span class="sg-chip">🐳 Docker</span>
+            <span class="sg-chip">📓 Jupyter Notebook</span>
+            <span class="sg-chip">💻 VS Code</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
           <div class="sg-title">Databases</div>
           <div class="sg-chips">
-            <span class="sg-chip featured">🗄️ Oracle SQL</span>
-            <span class="sg-chip">💾 MySQL</span>
+            <span class="sg-chip featured">🗄️ SQL</span>
+          </div>
+        </div>
+        <div class="skill-group reveal reveal-delay-1">
+          <div class="sg-title">AI Development Tools</div>
+          <div class="sg-chips">
+            <span class="sg-chip">🧠 Claude Code</span>
+            <span class="sg-chip">✨ OpenAI Codex</span>
+            <span class="sg-chip">🤖 GitHub Copilot</span>
           </div>
         </div>
       </div>
@@ -863,74 +885,34 @@ footer{
       <div class="section-header reveal">
         <p class="section-label">what i've built</p>
         <h2 class="section-title">Featured <span class="hi">Projects</span></h2>
-        <p class="section-sub">Tap a card to see full architecture and implementation details</p>
+        <p class="section-sub">Selected AI projects from my resume</p>
       </div>
       <div class="projects-grid">
-
         <div class="project-card reveal" onclick="openModal('rag')">
-          <div class="project-num">01 // <span class="cat">AI · NLP · RAG</span></div>
-          <div class="project-title">RAG AI Video Assistant</div>
-          <div class="project-desc">Fully offline AI system that transcribes course videos, builds semantic embeddings, and answers natural language questions with precise MM:SS timestamp links — no cloud APIs required.</div>
+          <div class="project-num">01 // <span class="cat">AI &middot; NLP &middot; RAG</span></div>
+          <div class="project-title">RAG-Based AI Video Assistant</div>
+          <div class="project-desc">A Python-based video assistant that processes video content and supports context-aware information retrieval using speech-to-text, translation, and natural-language search.</div>
           <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">RAG</span><span class="tag">Whisper</span><span class="tag">Ollama</span><span class="tag">llama3.2</span><span class="tag">bge-m3</span>
+            <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">RAG</span><span class="tag">Whisper</span><span class="tag">LLMs</span>
           </div>
           <div class="project-footer">
-            <a class="project-github" href="https://github.com/Anish-1504" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-              GitHub
-            </a>
-            <div class="project-arrow">↗</div>
+            <a class="project-github" href="https://github.com/Anish-1504/RAG-based-AI-video-Assistant" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub</a>
+            <a class="project-github" href="https://askmyvideos.vercel.app/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Live Demo</a>
+            <div class="project-arrow">&nearr;</div>
           </div>
         </div>
-
-        <div class="project-card reveal reveal-delay-1" onclick="openModal('drone')">
-          <div class="project-num">02 // <span class="cat">Computer Vision · Deep Learning</span></div>
-          <div class="project-title">Drone Object Detection System</div>
-          <div class="project-desc">Real-time multi-class object detection deployed on drone hardware using SSD MobileNet V3 trained on COCO dataset, with GPIO servo control responding to live aerial detections.</div>
+        <div class="project-card reveal reveal-delay-1" onclick="openModal('document')">
+          <div class="project-num">02 // <span class="cat">AI &middot; RAG &middot; Document Intelligence</span></div>
+          <div class="project-title">Advanced RAG Document Intelligence System</div>
+          <div class="project-desc">An end-to-end RAG pipeline for PDF research papers, with metadata-preserving document chunking, semantic embeddings, persistent vector storage, and context-aware question answering.</div>
           <div class="project-tags">
-            <span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">SSD MobileNet</span><span class="tag">COCO</span><span class="tag">GPIO</span>
+            <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">Sentence Transformers</span><span class="tag">Groq API</span>
           </div>
           <div class="project-footer">
-            <a class="project-github" href="https://github.com/Anish-1504" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-              GitHub
-            </a>
-            <div class="project-arrow">↗</div>
+            <a class="project-github" href="https://github.com/Anish-1504/RAG-Pipeline-From-Scratch" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub</a>
+            <div class="project-arrow">&nearr;</div>
           </div>
         </div>
-
-        <div class="project-card reveal" onclick="openModal('face')">
-          <div class="project-num">03 // <span class="cat">Edge ML · Computer Vision</span></div>
-          <div class="project-title">YOLO Face & Object Detection</div>
-          <div class="project-desc">Optimized YOLO architecture for real-time face and object detection on Raspberry Pi edge hardware. Uses Edge Impulse for streamlined training and TensorFlow Lite for constrained inference.</div>
-          <div class="project-tags">
-            <span class="tag">YOLO</span><span class="tag">Raspberry Pi</span><span class="tag">Edge Impulse</span><span class="tag">TFLite</span><span class="tag">OpenCV</span>
-          </div>
-          <div class="project-footer">
-            <a class="project-github" href="https://github.com/Anish-1504" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-              GitHub
-            </a>
-            <div class="project-arrow">↗</div>
-          </div>
-        </div>
-
-        <div class="project-card reveal reveal-delay-1" onclick="openModal('housing')">
-          <div class="project-num">04 // <span class="cat">Data Analysis · ML</span></div>
-          <div class="project-title">Housing Price Analysis</div>
-          <div class="project-desc">End-to-end EDA and machine learning pipeline that processes raw housing data, engineers predictive features, and builds regression models to forecast property valuations with explainable insights.</div>
-          <div class="project-tags">
-            <span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">scikit-learn</span><span class="tag">EDA</span>
-          </div>
-          <div class="project-footer">
-            <a class="project-github" href="https://github.com/Anish-1504" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-              GitHub
-            </a>
-            <div class="project-arrow">↗</div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -947,87 +929,39 @@ footer{
 
         <div class="exp-item reveal">
           <div class="exp-date-col">
-            <div class="exp-date-label">Mar 2025 – AUG 2026</div>
+            <div class="exp-date-label">Mar 2025 – Aug 2026</div>
           </div>
           <div class="exp-dot"></div>
           <div class="exp-body">
             <div class="exp-company">Indium Software</div>
             <div class="exp-role">Associate Test Engineer — Gaming Division (iXie)</div>
-            <div class="exp-location">Bangalore, India</div>
+            <div class="exp-location">Bengaluru, India</div>
             <div class="exp-points">
-              <div class="exp-point">Capture and validate gameplay footage for upcoming game events, meeting client quality standards and delivery timelines.</div>
-              <div class="exp-point">Track and manage defects end-to-end using Jira, maintaining accurate documentation and status updates across sprints.</div>
-              <div class="exp-point">Collaborate with cross-functional QA teams and project managers to ensure smooth project execution and client sign-off.</div>
-              <div class="exp-point">Developed a systematic bug reporting process that reduced rework cycles and improved delivery velocity for the team.</div>
+              <div class="exp-point">Analyzed application behavior, system output, and gameplay data to identify anomalies, validate expected responses, and evaluate software functionality.</div>
+              <div class="exp-point">Applied analytical and validation techniques to investigate defects, assess system performance, and improve software reliability with engineering teams.</div>
             </div>
           </div>
         </div>
 
-        <div class="exp-item reveal reveal-delay-1">
-          <div class="exp-date-col">
-            <div class="exp-date-label">2024<br>Internship</div>
-          </div>
-          <div class="exp-dot" style="background:var(--accent3);box-shadow:0 0 12px rgba(6,182,212,0.5);"></div>
-          <div class="exp-body">
-            <div class="exp-company">Crane's Varsity</div>
-            <div class="exp-role">Data Science Intern</div>
-            <div class="exp-location">Bangalore, India</div>
-            <div class="exp-points">
-              <div class="exp-point">Handled real-world datasets through full data science pipelines — cleaning, preprocessing, feature engineering, and model training using Python.</div>
-              <div class="exp-point">Applied NumPy and Pandas for structured data manipulation and exploratory analysis on industry-scale datasets.</div>
-              <div class="exp-point">Built and evaluated supervised ML models using scikit-learn, extracting predictive insights from business data.</div>
-              <div class="exp-point">Gained end-to-end AI/ML workflow experience including dataset preparation, training runs, and performance evaluation.</div>
-            </div>
-          </div>
-        </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ===== LEARNING ROADMAP ===== -->
-  <section class="section" id="learning">
+  <!-- ===== EDUCATION ===== -->
+  <section class="section" id="education">
     <div class="section-inner">
       <div class="section-header reveal">
-        <p class="section-label">growth path</p>
-        <h2 class="section-title">AI/ML <span class="hi">Learning Journey</span></h2>
-        <p class="section-sub">My structured roadmap toward becoming a full-stack AI engineer</p>
+        <p class="section-label">academic background</p>
+        <h2 class="section-title">My <span class="hi">Education</span></h2>
       </div>
-      <div class="roadmap-grid">
-        <div class="roadmap-col done reveal">
-          <div class="rc-header"><span class="rc-badge done">✓ Completed</span></div>
-          <div class="rc-items">
-            <div class="rc-item">Python Fundamentals</div>
-            <div class="rc-item">Machine Learning Basics</div>
-            <div class="rc-item">Data Analysis & EDA</div>
-            <div class="rc-item">Computer Vision (YOLO, CV)</div>
-            <div class="rc-item">RAG System Architecture</div>
-            <div class="rc-item">Edge AI Deployment</div>
-            <div class="rc-item">SQL & Databases</div>
-          </div>
+      <div class="education-card reveal">
+        <div>
+          <div class="education-school">Jain College of Engineering</div>
+          <div class="education-degree">Bachelor of Engineering, Electronics and Communications Engineering</div>
+          <div class="education-location">Belagavi, Karnataka, India</div>
         </div>
-        <div class="roadmap-col active reveal reveal-delay-1">
-          <div class="rc-header"><span class="rc-badge active">⚡ Currently Learning</span></div>
-          <div class="rc-items">
-            <div class="rc-item">Deep Learning (CNNs, Transformers)</div>
-            <div class="rc-item">Advanced RAG Techniques</div>
-            <div class="rc-item">Generative AI Fundamentals</div>
-            <div class="rc-item">TensorFlow Advanced</div>
-            <div class="rc-item">Vector Databases (FAISS, Pinecone)</div>
-            <div class="rc-item">LLM Prompt Engineering</div>
-          </div>
-        </div>
-        <div class="roadmap-col upcoming reveal reveal-delay-2">
-          <div class="rc-header"><span class="rc-badge upcoming">🎯 Upcoming</span></div>
-          <div class="rc-items">
-            <div class="rc-item">MLOps & Model Deployment</div>
-            <div class="rc-item">LangChain / LlamaIndex</div>
-            <div class="rc-item">LLM Fine-Tuning (LoRA, QLoRA)</div>
-            <div class="rc-item">Agentic AI Systems</div>
-            <div class="rc-item">Multimodal AI</div>
-            <div class="rc-item">AI Product Engineering</div>
-          </div>
-        </div>
+        <div class="education-date">2020 &ndash; 2024</div>
       </div>
     </div>
   </section>
@@ -1036,39 +970,23 @@ footer{
   <section class="section" id="certifications">
     <div class="section-inner">
       <div class="section-header reveal">
-        <p class="section-label">credentials</p>
-        <h2 class="section-title">My <span class="hi">Certifications</span></h2>
+        <p class="section-label">courses &amp; certifications</p>
+        <h2 class="section-title">Courses &amp; <span class="hi">Certifications</span></h2>
       </div>
       <div class="cert-grid">
         <div class="cert-card reveal">
           <div class="cert-icon">🎓</div>
-          <div class="cert-title">Supervised Machine Learning: Regression & Classification</div>
-          <div class="cert-issuer">Coursera · Andrew Ng / DeepLearning.AI</div>
-          <span class="cert-badge">Verified</span>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-icon">🧠</div>
-          <div class="cert-title">Advanced Learning Algorithms</div>
-          <div class="cert-issuer">Coursera · Andrew Ng / DeepLearning.AI</div>
-          <span class="cert-badge">Verified</span>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-icon">🤖</div>
-          <div class="cert-title">Unsupervised Learning, Recommenders, Reinforcement Learning</div>
-          <div class="cert-issuer">Coursera · Andrew Ng / DeepLearning.AI</div>
-          <span class="cert-badge">Verified</span>
+          <div class="cert-title">Machine Learning Specialization</div>
+          <div class="cert-issuer">Coursera &middot; Stanford / DeepLearning.AI</div>
+          <span class="cert-badge">Completed</span>
+          <div class="education-degree">Supervised Machine Learning: Regression and Classification; Advanced Learning Algorithms; Unsupervised Learning, Recommenders, Reinforcement Learning.</div>
         </div>
         <div class="cert-card reveal reveal-delay-1">
           <div class="cert-icon">📊</div>
           <div class="cert-title">Data Science Course</div>
-          <div class="cert-issuer">Crane's Varsity, Bangalore</div>
+          <div class="cert-issuer">CodeWithHarry</div>
           <span class="cert-badge">Completed</span>
-        </div>
-        <div class="cert-card reveal reveal-delay-2">
-          <div class="cert-icon">🐍</div>
-          <div class="cert-title">Python Full Stack Development</div>
-          <div class="cert-issuer">Industry Certification Program</div>
-          <span class="cert-badge">Certified</span>
+          <div class="education-degree">Python, NumPy, Pandas, SQL, Matplotlib, Seaborn, statistics, Scikit-learn, deep learning, neural networks, Git, Google Colab, and LLMs.</div>
         </div>
       </div>
     </div>
@@ -1084,43 +1002,48 @@ footer{
       <div class="ach-grid">
         <div class="ach-card reveal">
           <div class="ach-emoji">🥋</div>
-          <div class="ach-title">Black Belt in Karate</div>
-          <div class="ach-sub">Martial Arts</div>
+          <div class="ach-title">National Karate Championship</div>
+          <div class="ach-sub">Second Place</div>
         </div>
         <div class="ach-card reveal reveal-delay-1">
           <div class="ach-emoji">🥈</div>
-          <div class="ach-title">National Championship Runner-Up</div>
-          <div class="ach-sub">Karate · National Level</div>
+          <div class="ach-title">Departmental Karate Championship</div>
+          <div class="ach-sub">Silver Medalist</div>
         </div>
         <div class="ach-card reveal reveal-delay-2">
-          <div class="ach-emoji">🏅</div>
-          <div class="ach-title">State Championship Silver</div>
-          <div class="ach-sub">Karate · State Level</div>
+          <div class="ach-emoji">🥋</div>
+          <div class="ach-title">Karate Black Belt</div>
+          <div class="ach-sub">Achieved in 2017</div>
         </div>
         <div class="ach-card reveal">
           <div class="ach-emoji">🤖</div>
-          <div class="ach-title">Robo Race Winner</div>
-          <div class="ach-sub">Robotics Competition</div>
+          <div class="ach-title">Robo Race</div>
+          <div class="ach-sub">First Place &middot; JCER</div>
         </div>
         <div class="ach-card reveal reveal-delay-1">
           <div class="ach-emoji">🛠️</div>
-          <div class="ach-title">Bot Building Winner</div>
-          <div class="ach-sub">Engineering Competition</div>
+          <div class="ach-title">Bot Building</div>
+          <div class="ach-sub">First Place &middot; Basaveshwar Engineering College</div>
         </div>
         <div class="ach-card reveal reveal-delay-2">
           <div class="ach-emoji">👩‍💻</div>
-          <div class="ach-title">IEEE WIE Chair</div>
-          <div class="ach-sub">IEEE Women in Engineering</div>
+          <div class="ach-title">IEEE Women in Engineering (WIE)</div>
+          <div class="ach-sub">Chair &middot; 2022&ndash;2023</div>
         </div>
         <div class="ach-card reveal">
           <div class="ach-emoji">📸</div>
           <div class="ach-title">IEEE Media Head</div>
-          <div class="ach-sub">IEEE Chapter · Media & Comms</div>
+          <div class="ach-sub">2021&ndash;2022</div>
         </div>
         <div class="ach-card reveal reveal-delay-1">
           <div class="ach-emoji">🌐</div>
-          <div class="ach-title">GDG Volunteer</div>
-          <div class="ach-sub">Google Developer Groups</div>
+          <div class="ach-title">Google Developer Groups</div>
+          <div class="ach-sub">Volunteer &middot; 2022</div>
+        </div>
+        <div class="ach-card reveal reveal-delay-2">
+          <div class="ach-emoji">🤝</div>
+          <div class="ach-title">KSCST Volunteer</div>
+          <div class="ach-sub">VTU, Belgaum event</div>
         </div>
       </div>
     </div>
@@ -1135,8 +1058,8 @@ footer{
       </div>
       <div class="contact-layout">
         <div class="contact-left reveal">
-          <h3>Open to collaborations,<br>opportunities &amp; interesting conversations.</h3>
-          <p>Whether you're hiring for an AI/ML role, looking to collaborate on a RAG or CV project, or just want to talk about building intelligent systems — I'm always up for it.</p>
+          <h3>Get in touch<br>and connect with me.</h3>
+          <p>Reach out by email or connect with me on LinkedIn and GitHub.</p>
           <div class="contact-items">
             <a class="contact-item" href="https://mail.google.com/mail/?view=cm&fs=1&to=anishpatil.1100537@gmail.com" target="_blank" rel="noopener">
               <div class="contact-item-icon">✉️</div>
@@ -1163,7 +1086,7 @@ footer{
               <div class="contact-item-icon">📍</div>
               <div class="contact-item-body">
                 <div class="contact-item-label">Location</div>
-                <div class="contact-item-val">Bangalore, Karnataka, India</div>
+                <div class="contact-item-val">Belagavi, India · 590010</div>
               </div>
             </div>
           </div>
@@ -1180,7 +1103,7 @@ footer{
 
   <footer>
     <div class="footer-name">Anish S. <span>Patil</span></div>
-    <div class="footer-note">AI/ML Engineer · RAG Developer · Bangalore, India</div>
+    <div class="footer-note">AI Engineer · Generative AI &amp; RAG Systems · Belagavi, India</div>
     <button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
   </footer>
 
@@ -1255,7 +1178,7 @@ const obs=new IntersectionObserver(entries=>{
 revealEls.forEach(el=>obs.observe(el));
 
 // ===== TYPEWRITER =====
-const texts=['AI/ML Engineer 🤖','RAG Developer 🔍','Computer Vision Engineer 👁️','Generative AI Enthusiast 🧠','Python Developer 🐍'];
+const texts=['AI Engineer 🤖','Generative AI Developer 🧠','RAG Systems Developer 🔍'];
 let ti=0,ci=0;
 const el=document.getElementById('type-text');
 function typeEff(){
@@ -1271,62 +1194,25 @@ typeEff();
 // ===== PROJECTS DATA =====
 const projects={
   rag:{
-    title:'RAG AI Video Assistant',
-    category:'AI · NLP · RAG',
-    overview:'A fully offline AI system that analyzes course video content through transcription and context-aware semantic search. Users can ask natural language questions and receive precise answers with MM:SS timestamp links — all running locally with no cloud APIs required.',
+    title:'RAG-Based AI Video Assistant',
+    category:'AI / NLP / RAG',
+    overview:'A Python-based video assistant that processes video content and supports context-aware information retrieval.',
     points:[
-      'Transcribed course video audio into timestamped segments using OpenAI Whisper (local inference)',
-      'Generated dense semantic embeddings using bge-m3 model via Ollama for local vector representation',
-      'Implemented cosine similarity-based retrieval with scikit-learn for accurate top-K chunk matching',
-      'Pre-computed and cached all embeddings with joblib, eliminating runtime latency on repeated queries',
-      'Built a structured prompt engineering pipeline formatting answers with precise MM:SS timestamp anchors',
-      'Used llama3.2 as the answer generation LLM — fully offline, privacy-preserving, zero API costs',
-      'Added Hindi-to-English translation pipeline to support multilingual course content',
-      'Designed for Python course videos so students can instantly locate any concept or explanation'
+      'Integrated Whisper for speech-to-text transcription and FFmpeg for audio extraction and preprocessing',
+      'Implemented Hindi-to-English translation and timestamp-based retrieval to identify relevant video segments',
+      'Enabled natural-language search over video content using LLM-based processing'
     ],
-    tech:['Python','Ollama','llama3.2','bge-m3','Whisper','scikit-learn','joblib','NumPy','FFmpeg','RAG','NLP']
+    tech:['Python','NLP','RAG','Whisper','LLMs','FFmpeg']
   },
-  drone:{
-    title:'Drone Object Detection System',
-    category:'Computer Vision · Deep Learning',
-    overview:'A real-time object detection system deployed on drone-mounted hardware that classifies objects from live aerial footage using COCO-trained deep learning models, with physical drone response via GPIO servo integration.',
+  document:{
+    title:'Advanced RAG Document Intelligence System',
+    category:'AI / RAG / Document Intelligence',
+    overview:'An end-to-end RAG pipeline to ingest PDF research papers, split documents into chunks, and preserve metadata.',
     points:[
-      'Built real-time inference pipeline using TensorFlow and OpenCV for aerial video stream processing',
-      'Used SSD MobileNet V3 pre-trained on COCO dataset for 80-class multi-object recognition',
-      'Optimized the full inference pipeline for deployment on drone-mounted compute hardware under weight and power constraints',
-      'Implemented Non-Maximum Suppression (NMS) for clean, accurate bounding box prediction at speed',
-      'Integrated GPIO pin control and servo motors for physical drone response based on detection outputs',
-      'Achieved real-time inference performance suitable for live aerial surveillance use cases'
+      'Implemented semantic embeddings using Sentence Transformers and persistent vector storage with ChromaDB',
+      'Integrated Groq LLMs for context-aware question answering with similarity-based retrieval, source attribution, and streaming responses'
     ],
-    tech:['Python','TensorFlow','OpenCV','SSD MobileNet V3','COCO Dataset','NMS','GPIO','PWM','NumPy']
-  },
-  face:{
-    title:'YOLO Face & Object Detection (Edge)',
-    category:'Edge ML · Computer Vision',
-    overview:'A real-time face and multi-object detection system architected for edge deployment on Raspberry Pi, using YOLO for inference and Edge Impulse for training workflow — demonstrating practical AI at the hardware frontier.',
-    points:[
-      'Implemented YOLO-based object and face detection optimized for low-latency edge inference',
-      'Tailored the full model pipeline for Raspberry Pi hardware constraints (CPU-only, limited RAM)',
-      'Used Edge Impulse for end-to-end model training, optimization, and deployment workflow',
-      'Applied model quantization and pruning techniques to fit YOLO within edge device memory budget',
-      'Integrated OpenCV for camera stream capture and real-time bounding box visualization',
-      'Achieved efficient sub-second inference on constrained hardware through careful pipeline design'
-    ],
-    tech:['Python','YOLO','Raspberry Pi','Edge Impulse','OpenCV','TensorFlow Lite','Quantization','Pruning']
-  },
-  housing:{
-    title:'Housing Price Analysis',
-    category:'Data Analysis · Machine Learning',
-    overview:'An end-to-end data science project covering full EDA, feature engineering, and regression modeling on real housing datasets to extract market insights and predict property prices with interpretable outputs.',
-    points:[
-      'Performed comprehensive EDA to surface price drivers, outliers, distributions, and feature correlations',
-      'Cleaned raw housing data with Pandas — resolved missing values, type inconsistencies, and duplicate entries',
-      'Engineered new predictive features (price-per-sqft, neighborhood score, age buckets) to boost model signal',
-      'Visualized key patterns and relationships using Matplotlib and Seaborn for stakeholder communication',
-      'Built and benchmarked multiple regression models (Linear, Ridge, Random Forest) using scikit-learn',
-      'Extracted actionable insights: location, square footage, and amenities as primary price determinants'
-    ],
-    tech:['Python','Pandas','NumPy','Matplotlib','Seaborn','scikit-learn','EDA','Feature Engineering','Regression']
+    tech:['Python','LangChain','ChromaDB','Sentence Transformers','Groq API']
   }
 };
 
