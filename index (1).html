@@ -221,9 +221,9 @@ body::before{
   animation:fadeUp 0.5s ease both;
 }
 .hero-profile{
+  position:absolute;top:4rem;right:2rem;
   width:140px;height:140px;object-fit:cover;border-radius:50%;
   border:3px solid var(--accent2);box-shadow:0 0 28px rgba(168,85,247,0.28);
-  margin-bottom:1.35rem;
 }
 .hero-badge::before{content:'●';font-size:0.42rem;animation:pulse 2s infinite;}
 h1.hero-name{
@@ -629,6 +629,7 @@ footer{
   .section{padding:3.5rem 0;}
   .section-inner{padding:0 1.2rem;}
   .hero-content{padding:3rem 1.2rem 2rem;}
+  .hero-profile{position:static;margin:0 0 1.35rem auto;}
   .education-card{flex-direction:column;gap:0.7rem;}
   .skills-preview-strip{padding:0 1.2rem 2.5rem;}
   .ach-grid{grid-template-columns:repeat(2,1fr);}
